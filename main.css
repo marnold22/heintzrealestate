@@ -6,5 +6,10 @@
 
 /* COLORS */
 :root {
-    --white: #ffffff;
+    --brown: #856E62;
+    --tan: #D9C3A2;
+    --grey-1: #CBC5BF;
+    --grey-2: #A6A19C;
+    --grey-3: #514F4F;
+    --grey-4: #2B2B2B;
 }
