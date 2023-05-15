@@ -1,0 +1,10 @@
+/* DEFAULTS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* COLORS */
+:root {
+    --white: #ffffff;
+}
