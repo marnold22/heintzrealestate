@@ -13,3 +13,12 @@
     --grey-3: #514F4F;
     --grey-4: #2B2B2B;
 }
+
+/* .home-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/house-0.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+} */
