@@ -2,6 +2,10 @@
 * {
     margin: 0;
     padding: 0;
+    /* font-family: 'Sora', sans-serif; */
+    /* font-family: 'Inter', sans-serif; */
+    /* font-family: 'Manrope', sans-serif; */
+    font-family: 'Raleway', sans-serif;
 }
 
 /* COLORS */
@@ -12,13 +16,73 @@
     --grey-2: #A6A19C;
     --grey-3: #514F4F;
     --grey-4: #2B2B2B;
+    --logo-dark: #2A2A2B;
+    --off-white: #f2f2f2;
 }
 
-/* .home-banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/house-0.jpg') no-repeat center center fixed;
+.navbar {
+    font-size: 1.2rem;
+}
+
+.navbar-logo {
+    width: 100px;
+}
+
+.menu-bg {
+    background-color: var(--brown) !important;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/images/house-10.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     height: 100vh;
-} */
+}
+
+.banner-content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: var(--off-white);
+}
+
+.banner-heavy-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.banner-soft-text {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 400px) {
+    .banner-heavy-text {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+    .banner-soft-text {
+        font-size: 1rem;
+        font-weight: 100;
+    }
+  }
+
+.about {
+    height: 100vh;
+    padding-top: 5rem;
+}
+
+.listings {
+    height: 100vh;
+    padding-top: 5rem;
+}
+
+.contact {
+    height: 100vh;
+    padding-top: 5rem;
+}
