@@ -274,7 +274,7 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
     background-color: var(--cream);
-    box-shadow: 0 0 22px 17px var(--cream);
+    box-shadow: 0 0 30px 30px var(--cream);
     /* background: rgb(255,255,255); */
     /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(223,207,182,1) 25%, rgba(223,207,182,1) 80%, rgba(255,255,255,1) 100%); */
 }
