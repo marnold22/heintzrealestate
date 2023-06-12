@@ -13,6 +13,7 @@
     --brown: #856E62;
     --tan: #D9C3A2;
     --cream: #dfcfb6;
+    --cream_light: #f6e8d2;
     --grey-1: #CBC5BF;
     --grey-2: #A6A19C;
     --grey-3: #514F4F;
@@ -273,8 +274,9 @@
     height: 100%;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: var(--cream);
-    box-shadow: 0 0 30px 30px var(--cream);
+    /* background-color: var(--cream); */
+    background-color: var(--tan);
+    /* box-shadow: 0 0 30px 30px var(--cream); */
     /* background: rgb(255,255,255); */
     /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(223,207,182,1) 25%, rgba(223,207,182,1) 80%, rgba(255,255,255,1) 100%); */
 }
@@ -300,6 +302,9 @@ background: -o-linear-gradient(315deg, var(--brown) 0%, var(--grey-2) 100%); */
 
     background: linear-gradient(120deg, var(--brown) 0%, var(--grey-2) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7f279c', endColorstr='#2e279d', GradientType=1);
+
+    /* background-color: var(--grey-2); */
+    /* background-color: var(--grey-4); */
 }
 
 .contact-form {
