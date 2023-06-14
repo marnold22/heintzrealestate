@@ -258,6 +258,19 @@
     padding-right: 1rem;
 }
 
+/* ---------- INPUT FIELDS ---------- */
+.form-check-input:checked {
+    background-color: var(--brown) !important;
+    border-color: var(--brown) !important;
+}
+textarea:focus,
+input[type="checkbox"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: var(--brown) !important;
+    box-shadow: 0 0 0 0.2rem rgba(133, 110, 98, 0.25) !important;
+}
+
 /* ---------- MEDIA QUIRIES ---------- */
 @media screen and (min-width: 1200px) {
     .about-img {
