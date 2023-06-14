@@ -276,6 +276,7 @@ input[type="email"]:focus {
     .about-img {
         height: 100%;
         right: 40px;
+        top: 40px;
     }
 
 }
