@@ -1,1 +1,6 @@
+# All assets ignored (uploaded via FTP)
 images/*
+
+# Utilities ignored (compiled on server)
+vendor/
+composer.lock
