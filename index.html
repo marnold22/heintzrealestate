@@ -138,7 +138,7 @@
             </div>
             <div class="row py-4">
                 <div class="container">
-                    <a href="#" class=" btn btn-lg listings-btn" type="submit">See other listings!</a>
+                    <a href="https://ben.homesinpacificnorthwest.com/" class=" btn btn-lg listings-btn" type="submit">See all my listings!</a>
                 </div>
             </div>
         </div>
@@ -153,67 +153,70 @@
                         <img src="/images/logos/updated-logo-sq.png" alt="" class="contact-left-img">
                     </div>
                     <div class="col-lg-7">
-                        <form action="" class="contact-form">
-                            <h5 class="text-center">Contact Directly: ben@heintzrealestate.com</h5>
+                        <form method="post" action="contact-form.php" class="contact-form">
+                            <h5 class="text-center">
+                                <i class="fa-solid fa-envelope px-3" style="color: #856e62;"></i>ben@heintzrealestate.com
+                                <i class="fa-solid fa-phone px-3" style="color: #856e62;"></i>509.287.4030
+                            </h5>
                             <div class="row py-2">
                                 <div class="col">
-                                    <label for="inputFirst" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" placeholder="First name"
-                                        aria-label="First name">
+                                    <label for="inputFirst" class="form-label">First Name*</label>
+                                    <input type="text" name="inputFirst" id="inputFirst" class="form-control" placeholder="First name"
+                                        aria-label="First name" required>
                                 </div>
                                 <div class="col">
-                                    <label for="inputLast" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last name"
-                                        aria-label="Last name">
+                                    <label for="inputLast" class="form-label">Last Name*</label>
+                                    <input type="text" name="inputLast" id="inputLast" class="form-control" placeholder="Last name"
+                                        aria-label="Last name" required>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col">
-                                    <label for="inputEmail" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" placeholder="name@example.com"
-                                        aria-label="Email address">
+                                    <label for="inputEmail" class="form-label">Email address*</label>
+                                    <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="name@example.com"
+                                        aria-label="Email address" required>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col-sm-6 col-md-4 col-lg-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Investing">
-                                        <label class="form-check-label" for="Investing">Investing</label>
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="investing" id="investing">
+                                        <label class="form-check-label" for="investing">Investing</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Selling">
-                                        <label class="form-check-label" for="Selling">Selling</label>
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="selling" id="selling">
+                                        <label class="form-check-label" for="selling">Selling</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Buying">
-                                        <label class="form-check-label" for="Buying">Buying</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-4 col-lg-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="FirstHome">
-                                        <label class="form-check-label" for="FirstHome">First Home Buyer</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Commercial">
-                                        <label class="form-check-label" for="Commercial">Commercial</label>
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="buying" id="buying">
+                                        <label class="form-check-label" for="buying">Buying</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Proptery">
-                                        <label class="form-check-label" for="Proptery">Property Management</label>
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="firsthome" id="firsthome">
+                                        <label class="form-check-label" for="firsthome">First Home Buyer</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Other">
-                                        <label class="form-check-label" for="Other">Other Questions</label>
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="commercial" id="commercial">
+                                        <label class="form-check-label" for="commercial">Commercial</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="proptery" id="proptery">
+                                        <label class="form-check-label" for="proptery">Property Management</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="check_list[]" value="other" id="other">
+                                        <label class="form-check-label" for="other">Other Questions</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col">
                                     <label for="inputMessage" class="form-label">Message</label>
-                                    <textarea class="form-control" placeholder="Questions & Comments"></textarea>
+                                    <textarea class="form-control" name="inputMessage" id="inputMessage" placeholder="Questions & Comments" required></textarea>
                                 </div>
                             </div>
                             <div class="row pt-4">
