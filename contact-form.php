@@ -9,9 +9,13 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'vendor/autoload.php';
 
+//Load .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // Clean user input function
-function clean_input($data) {
+function clean_input($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -19,7 +23,8 @@ function clean_input($data) {
 }
 
 // Reset Form
-function reset_form_data() {
+function reset_form_data()
+{
     $first_name = $last_name = $email = $checklist = $message = "";
     $first_name_err = $last_name_err = $email_err = $checklist_err = $message_err = "";
 }
@@ -31,10 +36,10 @@ $first_name_err = $last_name_err = $email_err = $message_err = "";
 
 // START FORM PROCESS
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check required fields are filled
-    if(!isset($_POST["inputFirst"]) || !isset($_POST["inputLast"]) || !isset($_POST["inputEmail"]) || !isset($_POST["inputMessage"])) {
+    if (!isset($_POST["inputFirst"]) || !isset($_POST["inputLast"]) || !isset($_POST["inputEmail"]) || !isset($_POST["inputMessage"])) {
         echo "Sorry one of the required fields is missing, please try again!";
         $first_name_err = $last_name_err = $email_err = $message_err = "REQUIRED FIELDS";
         die();
@@ -62,14 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $message = clean_input($_POST["inputMessage"]);
 
     // CHECKLIST
-    if(isset($_POST["check_list"])) {
+    if (isset($_POST["check_list"])) {
         // Loop through all checkboxes           
-        foreach($_POST['check_list'] as $selected) {
-            $checklist .= strtoupper($selected. ", ");
+        foreach ($_POST['check_list'] as $selected) {
+            $checklist .= strtoupper($selected . ", ");
         }
     }
 
-    if($first_name_err == "" && $last_name_err == "" && $email_err == "" && $message_err == "") {
+    if ($first_name_err == "" && $last_name_err == "" && $email_err == "" && $message_err == "") {
         // SEND EMAIL
 
         //Unset the post submission (for next load)
@@ -77,11 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
         // Compose the email
         $composed_email = "";
-        $composed_email .= "First Name: ".$first_name."<br>";
-        $composed_email .= "Last Name: ".$last_name."<br>";
-        $composed_email .= "Email: ".$email."<br>";
-        $composed_email .= "Interested in: ".$checklist."<br>";
-        $composed_email .= "Message: ".$message."<br>";
+        $composed_email .= "First Name: " . $first_name . "<br>";
+        $composed_email .= "Last Name: " . $last_name . "<br>";
+        $composed_email .= "Email: " . $email . "<br>";
+        $composed_email .= "Interested in: " . $checklist . "<br>";
+        $composed_email .= "Message: " . $message . "<br>";
 
         // Create new PHPMailer object
         $mail = new PHPMailer(TRUE);
@@ -89,10 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Server settings
         // $mail->SMTPDebug = SMTP::DEBUG_OFF;                              // Enable verbose debug output
         // $mail->isSMTP();                                                 // Send using SMTP
-        // $mail->Host       = 'SEND_GRID_HOST';                            // Set the SMTP server to send through
+        // $mail->Host       = $_ENV["SMTP_HOST"];                          // Set the SMTP server to send through
         // $mail->SMTPAuth   = true;                                        // Enable SMTP authentication
-        // $mail->Username   = SEND_GRID_FROM_USER_CREDENTIALS;                  // SMTP username
-        // $mail->Password   = SEND_GRID_FROM_PASS_CREDENTIALS;             // SMTP password
+        // $mail->Username   = $_ENV["FROM_EMAIL"];                         // SMTP username
+        // $mail->Password   = $_ENV["FROM_EMAIL_PASS"];                    // SMTP password
         // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;              // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         // $mail->Port       = 587;                                         // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -100,36 +105,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Test Settings
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'HOST';
+        $mail->Host       = $_ENV["SMTP_HOST"];
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'SENDER_EMAIL';
-        $mail->Password   = 'SENDER_PASS';
-        $mail->SMTPSecure = "ssl";
+        $mail->Username   = $_ENV["FROM_EMAIL"];
+        $mail->Password   = $_ENV["FROM_EMAIL_PASS"];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
 
 
         //Recipients
-        $mail->setFrom('SENDER_EMAIL', 'Ben Heintz SMTP');  // Set default address that emails are sent from
-        $mail->addAddress('RECIEVER_EMAIL', 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
+        $mail->setFrom($_ENV["FROM_EMAIL"], 'Ben Heintz SMTP');           // Set default address that emails are sent from
+        $mail->addAddress($_ENV["TO_EMAIL"], 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
 
         // Content
-        $mail->isHTML(true);                                             // Set email format to HTML
-        $mail->Subject = 'Request More Information From Website';        // Subject
-        $mail->Body    = $composed_email;                                // Body
-        $mail->AltBody = $composed_email;                                // Alt. Body
+        $mail->isHTML(true);                                              // Set email format to HTML
+        $mail->Subject = 'Request More Information From Website';         // Subject
+        $mail->Body    = $composed_email;                                 // Body
+        $mail->AltBody = $composed_email;                                 // Alt. Body
 
         // Send the email
         if ($mail->send()) {
             $mailsend_success = "Message sent! Thank you for contacting us.";
-            echo '<script>alert("'.$mailsend_success.'")</script>';
+            echo '<script>alert("' . $mailsend_success . '")</script>';
             reset_form_data();
-
         } else {
             $mailsend_error = "Message could not be sent. Mailer Error: {" . $mail->ErrorInfo . "}";
-            echo '<script>alert("'.$mailsend_error.'")</script>';
+            echo '<script>alert("' . $mailsend_error . '")</script>';
             reset_form_data();
         }
-
     }
-
 }
