@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $message = clean_input($_POST["inputMessage"]);
 
     // CHECKLIST
-    if(isset($_POST[""])) {
+    if(isset($_POST["check_list"])) {
         // Loop through all checkboxes           
         foreach($_POST['check_list'] as $selected) {
             $checklist .= strtoupper($selected. ", ");
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Compose the email
         $composed_email = "";
         $composed_email .= "First Name: ".$first_name."<br>";
-        $composed_email .= "Last Name: ".$$last_name."<br>";
+        $composed_email .= "Last Name: ".$last_name."<br>";
         $composed_email .= "Email: ".$email."<br>";
         $composed_email .= "Interested in: ".$checklist."<br>";
         $composed_email .= "Message: ".$message."<br>";
@@ -100,17 +100,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Test Settings
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'SEND_GRID_HOST';
+        $mail->Host       = 'HOST';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'SEND_GRID_FROM_USER_CREDENTIALS';
-        $mail->Password   = 'SEND_GRID_FROM_PASS_CREDENTIALS';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Username   = 'SENDER_EMAIL';
+        $mail->Password   = 'SENDER_PASS';
+        $mail->SMTPSecure = "ssl";
         $mail->Port       = 465;
 
 
         //Recipients
-        $mail->setFrom('SEND_GRID_FROM_CREDENTIALS', 'Benjamin Heintz');  // Set default address that emails are sent from
-        $mail->addAddress('BENS_EMAIL_HERE', 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
+        $mail->setFrom('SENDER_EMAIL', 'Ben Heintz SMTP');  // Set default address that emails are sent from
+        $mail->addAddress('RECIEVER_EMAIL', 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
 
         // Content
         $mail->isHTML(true);                                             // Set email format to HTML
