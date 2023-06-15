@@ -103,19 +103,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // Test Settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $mail->isSMTP();
+        // $mail->Host       = $_ENV["SMTP_HOST"];
+        // $mail->SMTPAuth   = true;
+        // $mail->Username   = $_ENV["FROM_EMAIL"];
+        // $mail->Password   = $_ENV["FROM_EMAIL_PASS"];
+        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        // $mail->Port       = 465;
+
+
+        // Test Settings for SMTP Server
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;
         $mail->isSMTP();
         $mail->Host       = $_ENV["SMTP_HOST"];
         $mail->SMTPAuth   = true;
         $mail->Username   = $_ENV["FROM_EMAIL"];
         $mail->Password   = $_ENV["FROM_EMAIL_PASS"];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = 465;
-
+        $mail->Port       = 587;
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
 
         //Recipients
         $mail->setFrom($_ENV["FROM_EMAIL"], 'Ben Heintz SMTP');           // Set default address that emails are sent from
-        $mail->addAddress($_ENV["TO_EMAIL"], 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
+        $mail->addAddress($_ENV["FROM_EMAIL"], 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
 
         // Content
         $mail->isHTML(true);                                              // Set email format to HTML
@@ -126,8 +142,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Send the email
         if ($mail->send()) {
             $mailsend_success = "Message sent! Thank you for contacting us.";
-            echo '<script>alert("' . $mailsend_success . '")</script>';
+            // echo '<script>alert("' . $mailsend_success . '")</script>';
             reset_form_data();
+            header("Location: index.html");
         } else {
             $mailsend_error = "Message could not be sent. Mailer Error: {" . $mail->ErrorInfo . "}";
             echo '<script>alert("' . $mailsend_error . '")</script>';
