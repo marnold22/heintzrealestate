@@ -4,3 +4,6 @@ images/*
 # Utilities ignored (compiled on server)
 vendor/
 composer.lock
+
+# Credentials
+.env
