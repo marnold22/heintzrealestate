@@ -43,6 +43,25 @@
     background-color: var(--brown) !important;
 }
 
+.thankyou-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/images/houses/house-4.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+.thankyou-btn {
+    border-color: #fff !important;
+    color: #fff !important;
+    background-color: transparent !important;
+}
+.thankyou-btn:hover {
+    color: #2A2A2B !important;
+    background-color: #fff !important;
+}
+
 .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/images/houses/house-5.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;

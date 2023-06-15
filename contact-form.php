@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailsend_success = "Message sent! Thank you for contacting us.";
             // echo '<script>alert("' . $mailsend_success . '")</script>';
             reset_form_data();
-            header("Location: index.html");
+            header("Location: thankyou.html");
         } else {
             $mailsend_error = "Message could not be sent. Mailer Error: {" . $mail->ErrorInfo . "}";
             echo '<script>alert("' . $mailsend_error . '")</script>';
