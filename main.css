@@ -302,6 +302,11 @@
     padding-right: 1rem;
 }
 
+.footer-text {
+    text-decoration: none;
+    color: #fff;
+}
+
 /* ---------- INPUT FIELDS ---------- */
 .form-check-input:checked {
     background-color: var(--brown) !important;
