@@ -1,0 +1,57 @@
+<div id="listings" class="listings">
+    <div class="container text-center">
+        <div class="row">
+            <h2 class="py-4 listing-hd">LISTINGS</h2>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg"
+                    style="background-image:url('/images/house-0.jpg');">
+                    <img class="card-img d-none" src="/images/house-0.jpg" alt="Modern two story house in clean white with a pool">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Listing 1</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white no-decor" herf="#listings">974 Locust Ave. Merrick</a>
+                            </h4>
+                            <small> NY 11566</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg"
+                    style="background-image:url('/images/house-5.jpg');">
+                    <img class="card-img d-none" src="/images/house-5.jpg" alt="Modern two story home in sleek black, taken at dusk.">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Listing 2</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white no-decor" herf="#listings">9441 Primrose Street Riverside</a>
+                            </h4>
+                            <small>NJ 08075</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card text-white card-has-bg"
+                    style="background-image:url('/images/house-2.jpg');">
+                    <img class="card-img d-none" src="/images/house-2.jpg" alt="Modern three story white granite home with a pool.">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">Listing 3</small>
+                            <h4 class="card-title mt-0 ">
+                                <a class="text-white no-decor" herf="#">8565 Princess Ave. Sunnyside</a>
+                            </h4>
+                            <small>NY 11104</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="container">
+                <a href="https://ben.homesinpacificnorthwest.com/" class="btn btn-lg listings-btn" type="submit" target=”_blank”>See all my listings!</a>
+            </div>
+        </div>
+    </div>
+</div>
