@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Recipients
         $mail->setFrom($_ENV["FROM_EMAIL"], 'Ben Heintz SMTP');           // Set default address that emails are sent from
-        $mail->addAddress($_ENV["FROM_EMAIL"], 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
+        $mail->addAddress($_ENV["TO_EMAIL"], 'Benjamin Heintz');          // This is who the email is being sent to (ie. Ben's work email)
 
         // Content
         $mail->isHTML(true);                                              // Set email format to HTML
