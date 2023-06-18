@@ -16,12 +16,12 @@ document.querySelector("#about-anchor-btn").onclick = function () {
         scrollTop: $("#about").offset().top
     }, 500);
 }
-document.querySelector("#listings-anchor-btn").onclick = function () {
+document.querySelector("#explore-anchor-btn").onclick = function () {
     if($(window).width() <= 991){
         myOffcanvas.toggle();
     }
     $([document.documentElement, document.body]).animate({
-        scrollTop: $("#listings").offset().top
+        scrollTop: $("#explore").offset().top
     }, 500);
 }
 document.querySelector("#contact-anchor-btn").onclick = function () {
