@@ -305,6 +305,7 @@
 .footer-text {
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 }
 
 /* ---------- INPUT FIELDS ---------- */
