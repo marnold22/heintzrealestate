@@ -410,6 +410,9 @@ input[type="email"]:focus {
 }
 
 @media screen and (max-width: 474px) {
+    .hero-banner, .explore {
+        background-attachment: scroll
+    }
     .about {
         padding-bottom: 6rem;
     }
