@@ -57,6 +57,7 @@
     color: #fff !important;
     background-color: transparent !important;
 }
+
 .thankyou-btn:hover {
     color: #2A2A2B !important;
     background-color: #fff !important;
@@ -149,6 +150,7 @@
     font-weight: 100;
     padding-bottom: 1.25rem;
 }
+
 .explore-center {
     position: relative;
     top: 50%;
@@ -313,6 +315,7 @@
     background-color: var(--brown) !important;
     border-color: var(--brown) !important;
 }
+
 textarea:focus,
 input[type="checkbox"]:focus,
 input[type="text"]:focus,
@@ -375,6 +378,14 @@ input[type="email"]:focus {
     .contact-left-bg {
         background: transparent;
     }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-logo-house {
+        width: 25%;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -387,11 +398,11 @@ input[type="email"]:focus {
     }
 
     .footer-logo {
-        width: 20%;
+        width: 30%;
     }
 
     .footer-logo-house {
-        width: 15%;
+        width: 25%;
     }
 }
 
@@ -410,9 +421,12 @@ input[type="email"]:focus {
 }
 
 @media screen and (max-width: 474px) {
-    .hero-banner, .explore {
+
+    .hero-banner,
+    .explore {
         background-attachment: scroll
     }
+
     .about {
         padding-bottom: 6rem;
     }
@@ -427,6 +441,14 @@ input[type="email"]:focus {
 
     .about-img-bg {
         min-height: 370px;
+    }
+
+    .footer-logo {
+        width: 30%;
+    }
+
+    .footer-logo-house {
+        width: 25%;
     }
 }
 
